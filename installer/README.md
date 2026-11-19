@@ -39,5 +39,20 @@ Silent installs accept Inno's standard switches plus `/PACKAGE=<LIVE-file>` and 
 
 The helper exposes `install`, `validate-package`, `verify-installed`, `rollback`, and `finalize`; run it without arguments for usage. Integration checks are in `tests/test_installer.py`.
 
-The decoder is used only during setup. Its notices ship with the installation. Public distribution still needs the matching codec source/build material and replacement/relinking provisions described in [audio conversion](../docs/foundation/audio-conversion.md); a local installer build does not close that release gate. Nothing is published by the build script.
+The decoder is used only during setup. Its notices ship with the installation. For public distribution, build the accompanying source archives and release documents as well:
+
+```powershell
+./installer/release.ps1
+# Package the existing installer with cached source archives:
+./installer/release.ps1 -SkipInstallerBuild -Offline
+```
+
+Python 3.11 or newer is required for release packaging. The first run downloads the SHA-256-pinned codec sources in `installer/config/source-archives.json`; later runs can use `-Offline`. Output is `out/release/PIXEL-1.0.0/`:
+
+- `PIXEL-1.0.0.exe`: the offline Windows x64 installer.
+- `PIXEL-1.0.0-source.zip`: current port source, including local edits and build instructions, with a base commit reference and per-file hashes. Logs, local game data, saves, and build outputs are excluded.
+- `PIXEL-1.0.0-third-party-sources.zip`: FNA and decoder/codec sources, upstream build instructions, the shipped FFmpeg configuration, licenses, download URLs/hashes, and [replacement instructions](codec-replacement.txt).
+- `RELEASE-NOTES.txt`, `THIRD-PARTY-NOTICES.txt`, and `SHA256SUMS.txt`.
+
+Upload all six files together to the release. The notes include an FFmpeg attribution and source location; retain it in the download-page description. Keep the corresponding source archives available beside every binary release. The packaging command verifies archive hashes and the decoder payload against the pinned upstream DLLs, and checks ZIP integrity. It packages only a built installer; rebuild setup first after changing port code or installer files. `-SkipInstallerBuild` is intended only for an already-current installer. Nothing is published by either script.
 

@@ -1,0 +1,60 @@
+Audio decoder source, build, and replacement guide
+================================================
+
+The decoder runs only during setup. The installed game plays prepared PCM banks
+through FAudio and does not need vgmstream or its FFmpeg/mpg123 DLLs afterward.
+
+Sources
+-------
+The sources/ directory contains the pinned vgmstream r2168 source tree at commit
+d9875b1fff307e4759dfb85e49e3d5e6fb196f7c, FFmpeg 9.0.2, mpg123 1.33.7,
+CELT 0.6.1/0.11.0, Speex 1.2.1, Ogg 1.3.5, Vorbis 1.3.7, Opus 1.6.1, and
+the FNA 26.11 source distribution. source-archives.json records download URLs
+and SHA-256 hashes. The FNA pin is also recorded in dependencies.json.
+
+Upstream build material is copied unchanged into build/: BUILD.md, BUILD-LIB.md,
+ffmpeg_options.txt, and celt-0110/ecintrin.h. The complete vgmstream archive also
+contains its MSVC projects, build scripts, export definitions, headers and source.
+Follow BUILD-LIB.md's 64-bit recipes for the codec libraries and BUILD.md for
+vgmstream. FFmpeg uses MSVC + MSYS2, Opus is statically linked, and FFmpeg itself
+is dynamically linked. No PIXEL changes were applied to these source archives.
+Upstream's guide describes its configuration edits and CELT symbol renaming.
+ffmpeg-build.txt records the actual configure string and license queried from
+the bundled x64 FFmpeg DLLs. The packaging tool verifies those DLLs against both
+the dependency pins and the x64 DLLs in the pinned vgmstream source archive.
+
+Replacing or modifying the decoder
+---------------------------------
+The port source and build scripts are supplied so you can rebuild and relink it
+with a modified decoder. Modification, debugging and reverse engineering for
+third-party library modifications are not prohibited by this project.
+
+1. Extract PIXEL-1.0.0-source.zip. Install the SDK pinned by global.json and use
+   scripts/bootstrap-fna.ps1 to prepare the normal dependencies.
+2. Build your modified Windows x64 vgmstream/codec DLLs using the supplied upstream
+   sources and recipes. Preserve compatible exported symbols and filenames.
+3. Copy your replacements into out/deps/vgmstream-r2168/ in the extracted port
+   source. Update each changed audioDecoder.files SHA-256 in
+   config/dependencies.json, using Get-FileHash -Algorithm SHA256. Hash checking
+   protects the stock installer from changed dependencies; the JSON pins are
+   editable and are not authenticated or signed.
+4. Build a custom installer with ./installer/build.ps1 -Offline after the normal
+   dependencies/runtime packs are cached. This uses the replacement files and
+   updated hashes directly; do not rerun bootstrap afterward, as it restores
+   upstream binaries. Run your custom installer with your own LIVE package.
+   To force fresh decoding rather than reuse, choose a new installation folder.
+
+Alternatively, after dotnet build PixelPort.sln -c Release, run:
+
+dotnet tools/prepare-cli/bin/Release/net10.0/prepare-cli.dll <LIVE-package> <new-private-stage> <private-root> config/supported-versions.json config/patch-anchors.json out/deps/managed/FNA.dll <replacement-decoder-directory>
+
+Use a new stage beneath private/ and the updated dependency JSON. The decoder
+must output the same PCM format, channel/sample counts and subsong ordering.
+The normal preparation checks still apply to the game package and decoded data.
+
+Distribution
+------------
+Keep the source archive, build guide, notices and release notes beside the
+installer download. Retain the source archive for every binary version offered.
+The original game package, prepared assemblies, banks and assets are not part
+of the port source or third-party source distributions.

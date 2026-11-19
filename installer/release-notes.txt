@@ -1,0 +1,53 @@
+Arkedo Series - 03 PIXEL! 1.0.0
+
+Windows x64 fan port using FNA. Bring your own supported Xbox 360 LIVE package;
+the original game and its assets are not included in these downloads.
+
+Install
+-------
+Download PIXEL-1.0.0.exe and run it. Select your Xbox 360 LIVE package, choose
+installation/save folders and shortcuts, and let setup prepare the game locally.
+No separate .NET installation or internet connection is required during setup.
+Only the supported package is accepted (SHA-256):
+64b5bb62e8cf16c44c04c1b9d2ac5f1c780db1cd28e031cd4315788ab3af4104
+
+Features
+--------
+- Controller, keyboard, and mouse menu support, with automatic button prompts.
+- Ultrawide gameplay. Menus and button puzzles retain their 16:9 layout.
+- Help and Options, including windowed, borderless, and fullscreen display modes.
+- Local saves, preserved across reinstall and uninstall.
+
+Keyboard quick reference
+------------------------
+Move/navigate: WASD or arrows. Jump/confirm: Space or Enter. Run: Shift.
+Interact/cancel: E or Backspace. Scan: hold Tab. Special action: Q.
+Pause/resume: Esc or P. Back/exit in menus: Esc or Backspace.
+Mouse: click menu options; left click in gameplay also interacts.
+
+Saves and support
+-----------------
+Setup defaults saves to the Windows Saved Games folder under
+"Arkedo Series - 03 PIXEL!" and allows another folder. Player.sav.bak retains
+the previous save; malformed saves are preserved as Player.sav.corrupt-*.
+Startup logs: %LOCALAPPDATA%\Pixel Recompilation\Logs\run.log
+Report issues at https://github.com/gabrielofavero/pixel-recompilation/issues
+Include the release version, Windows/GPU details, and the relevant log.
+Do not upload your game package, extracted assets, or prepared game files.
+
+Other downloads
+---------------
+PIXEL-1.0.0-source.zip: this port's working-tree source snapshot and build files.
+PIXEL-1.0.0-third-party-sources.zip: pinned FNA and audio codec source archives,
+upstream codec build instructions/configuration, licenses, and replacement guide.
+THIRD-PARTY-NOTICES.txt: dependency notices, also included in the installation.
+SHA256SUMS.txt: SHA-256 hashes of all accompanying release files. In PowerShell,
+use Get-FileHash .\PIXEL-1.0.0.exe -Algorithm SHA256 and compare the value.
+Publish all these files together on the same release page.
+
+This software uses libraries from the FFmpeg project under the LGPLv2.1 or later.
+Their source is in PIXEL-1.0.0-third-party-sources.zip beside this installer.
+FFmpeg: https://ffmpeg.org/  License: https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+
+The port's source is GPL-2.0; third-party components retain their own licenses.
+See LICENSE in the source archive and THIRD-PARTY-NOTICES.txt.
