@@ -1,5 +1,14 @@
 # Implementation log
 
+## 2026-11-19: Windows installer
+
+- Adapted the `z0mb1es-rec0mp1led` Inno Setup wizard and helper lifecycle for PIXEL. Kept per-user installation, folder selection, package validation, shortcut choices, ready/progress/finish pages, measured installed size, reuse, rollback, and save preservation. Removed the flashing-light and optional texture-import flows. PIXEL selects installation and saves; there is no pictures-import folder.
+- Setup uses the existing BMP image ladder and game icon. The Windows game EXE embeds `pixel.ico`; FNA receives `pixel.png` as its window icon. Both setup and the published game EXE passed a Windows GUI-subsystem check and a pixel comparison of their extracted 32px icons against the source ICO.
+- `./installer/build.ps1 -Offline` built `installer/out/PIXEL-1.0.0.exe` (69,158,525 bytes; SHA-256 `6e6a304d82184b57b02360d465cd2e92593a7fb335e57be54ea78476017d6faa`). The build verifies runtime/decoder pins and the payload allow-list; original/prepared game data and symbols are excluded. The self-contained helper prepares the player's package locally with the existing engine and verifies launch compatibility before committing.
+- `build-game -Offline` passed with zero warnings/errors and all 551 JIT checks passing. All four `test_installer.py` integration tests passed, covering fresh installation, verified reuse, rollback, finalization, damaged-content repair, unsafe manifest/package rejection, cancellation and cleanup, source/save preservation, and installation-directory junction rejection. Logs are ignored `out/installer-build.log`, `out/installer-game-check.log`, and `out/installer-tests.log`.
+- Actual silent install/reinstall/uninstall passed in an isolated private folder. The custom save folder persisted, reinstall reused content, Control Panel recorded the measured size, and uninstall removed game files/registration while preserving player data and the source package. Windows shell-folder lookup was unavailable inside the sandbox, so this check ran with normal Windows access. Evidence is in ignored `out/installer-wizard-check.log` and `private/wizard-check-929ba3eb6b964590b7bbe86481144801/`. The repeatable check is `tests/test-installer-wizard.ps1`.
+- Interactive wizard appearance/DPI review and the existing decoder codec-source/relinking distribution requirements remain open. This work does not publish a release. See [installer](../../installer/README.md) and [audio conversion](../foundation/audio-conversion.md).
+
 ## 2026-11-18: Enhancement 1 desktop input hooks
 
 - Added `Port.Hooks` and a separate guarded `DesktopInputPatch` for mouse menu selection/clicks and keyboard controls. The original reader's body, controller polling, pressed/held transitions, and gameplay/menu actions are retained. Preparation 0.3.0 records the enhancement identity and hook DLL hash. The original package/source bytes remain unchanged.

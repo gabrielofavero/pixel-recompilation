@@ -9,7 +9,8 @@ namespace Port.Prepare;
 // Keep entry order, sample counts and loop regions; only replace the sample encoding.
 internal static class WaveBankConverter
 {
-    internal static byte[] Convert(byte[] source, string decoderDirectory, JsonElement decoder, string temporaryRoot)
+    internal static byte[] Convert(byte[] source, string decoderDirectory, JsonElement decoder, string temporaryRoot,
+        Action<int, int>? progress = null)
     {
         foreach (var file in decoder.GetProperty("files").EnumerateArray())
         {
@@ -34,6 +35,7 @@ internal static class WaveBankConverter
             int xma = 0, pcm = 0;
             for (int index = 0; index < 71; index++)
             {
+                progress?.Invoke(index, 71);
                 int at = checked(metadata + index * 24);
                 uint flags = U(at), format = U(at + 4), start = U(at + 8), length = U(at + 12);
                 int channels = (int)(format >> 2 & 7), rate = (int)(format >> 5 & 0x3FFFF);
@@ -68,6 +70,7 @@ internal static class WaveBankConverter
                 while (payload.Length % 4 != 0) payload.WriteByte(0);
             }
             if (xma != 19 || pcm != 52) throw new InvalidDataException("Wave bank codec counts differ.");
+            progress?.Invoke(71, 71);
             using var result = new MemoryStream();
             using var writer = new BinaryWriter(result);
             const int dataOffset = 52 + 96 + 71 * 24;

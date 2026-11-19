@@ -4,7 +4,8 @@ using System.Text.Json;
 namespace Port.Prepare;
 
 public sealed record PreparationOptions(string PackagePath, string OutputDirectory, string PrivateRoot,
-    string SupportedVersionsPath, string PatchAnchorsPath, string FnaPath, string BridgePath, string? AudioDecoderDirectory = null);
+    string SupportedVersionsPath, string PatchAnchorsPath, string FnaPath, string BridgePath, string? AudioDecoderDirectory = null,
+    Action<string, int, int>? Progress = null);
 public sealed record PreparationResult(string OutputDirectory, int Files, int Xnbs, string ManifestSha256);
 
 internal sealed record SupportedVersion(string Title, string TitleId, int PackageBytes, string PackageSha256,
@@ -14,6 +15,9 @@ internal sealed record SupportedVersion(string Title, string TitleId, int Packag
 public static class PreparationEngine
 {
     public const string Version = "0.7.0";
+
+    public static void ValidatePackage(string packagePath, string supportedVersionsPath) =>
+        StfsPackage.Read(packagePath, ReadVersion(supportedVersionsPath));
 
     public static PreparationResult Prepare(PreparationOptions options)
     {
@@ -25,6 +29,7 @@ public static class PreparationEngine
         if (Path.Exists(destination)) throw new IOException($"Preparation target already exists: {destination}");
         ValidateParents(privateRoot, destination);
         var version = ReadVersion(options.SupportedVersionsPath);
+        options.Progress?.Invoke("extract", 0, 1);
         var files = StfsPackage.Read(options.PackagePath, version);
         using var dependencies = JsonDocument.Parse(File.ReadAllBytes(Path.Combine(
             Path.GetDirectoryName(Path.GetFullPath(options.SupportedVersionsPath))!, "dependencies.json")));
@@ -52,6 +57,7 @@ public static class PreparationEngine
         int xnbCount = 0;
         foreach (var file in files)
         {
+            options.Progress?.Invoke("content", outputs.Count, files.Count);
             byte[] run = file.Bytes;
             if (file.RelativePath.EndsWith(".xnb", StringComparison.OrdinalIgnoreCase))
             {
@@ -72,7 +78,8 @@ public static class PreparationEngine
                     anchor.GetProperty("methods"), fnaPath, bridgePath, main);
             }
             else if (file.RelativePath == "584E07D1/Content/Sounds/PIXEL_WaveBank.xwb")
-                run = WaveBankConverter.Convert(file.Bytes, decoderDirectory, audioDecoder, privateRoot);
+                run = WaveBankConverter.Convert(file.Bytes, decoderDirectory, audioDecoder, privateRoot,
+                    (done, total) => options.Progress?.Invoke("audio", done, total));
             else if (file.RelativePath == "584E07D1/Content/Sounds/PIXEL_SoundBank.xsb")
                 run = SoundBankConverter.Convert(file.Bytes);
             outputs.Add((file.RelativePath, file.Bytes, run));

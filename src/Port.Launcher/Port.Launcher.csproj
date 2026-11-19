@@ -1,6 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup><OutputType>Exe</OutputType><AssemblyName>Port.Launcher</AssemblyName><AllowUnsafeBlocks>true</AllowUnsafeBlocks></PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <OutputType Condition="'$(Configuration)' == 'Release' and '$(RuntimeIdentifier)' == 'win-x64'">WinExe</OutputType>
+    <AssemblyName>Port.Launcher</AssemblyName>
+    <Title>Arkedo Series - 03 PIXEL!</Title>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <ApplicationIcon>../../assets/icon/pixel.ico</ApplicationIcon>
+    <Version>1.0.0</Version>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+  </PropertyGroup>
   <ItemGroup>
+    <Content Include="../../assets/icon/pixel.png" Link="Arkedo Series - 03 PIXEL!.png" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
     <Reference Include="FNA"><HintPath>$(FnaDependencyDirectory)/managed/FNA.dll</HintPath><Private>true</Private></Reference>
     <ProjectReference Include="../Port.Bridge/Port.Bridge.csproj" />
     <ProjectReference Include="../Port.Hooks/Port.Hooks.csproj" />

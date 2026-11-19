@@ -8,7 +8,7 @@ There are some enhancements too, though nothing fancy. There is ultrawide suppor
 
 ## How to install
 
-Just run the installer and provide your game package or folder. It's a straightforward process.
+Run the Windows installer and select your Xbox 360 LIVE package. Setup prepares the game locally, lets you choose the game and saves folders, and creates your chosen shortcuts. No separate .NET installation or internet connection is required. See [installer build instructions](installer/README.md) to build setup from source.
 
 ## About assets
 

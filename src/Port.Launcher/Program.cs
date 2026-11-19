@@ -12,9 +12,11 @@ using SDL3;
 Environment.SetEnvironmentVariable("FNA3D_BACKBUFFER_SCALE_NEAREST",
     Environment.GetEnvironmentVariable("FNA3D_BACKBUFFER_SCALE_NEAREST") ?? "1");
 
+if (args.Length == 0) args = ["--run"];
+string? saveDirectory = null;
 if (args.Length < 1 || args[0] is not ("--run" or "--check-load" or "--probe-content" or "--probe-audio" or "--probe-menu-audio" or "--probe-save" or "--probe-ultrawide" or "--probe-prompts" or "--probe-signs"))
 {
-    Console.Error.WriteLine("Usage: Port.Launcher --run [--frames N] [--scripted-controller [--play-frames N]] [--scripted-save complete|continue] [--scripted-desktop] | --check-load | --probe-content | --probe-audio | --probe-menu-audio | --probe-save <read|write|reset> <isolated-save-directory> | --probe-ultrawide <capture-directory> | --probe-prompts <capture-directory> | --probe-signs <capture-directory> [text-filter]");
+    Console.Error.WriteLine("Usage: Port.Launcher --run [--save-dir <folder>] [--frames N] [--scripted-controller [--play-frames N]] [--scripted-save complete|continue] [--scripted-desktop] | --check-load | --probe-content | --probe-audio | --probe-menu-audio | --probe-save <read|write|reset> <isolated-save-directory> | --probe-ultrawide <capture-directory> | --probe-prompts <capture-directory> | --probe-signs <capture-directory> [text-filter]");
     return 2;
 }
 int? limit = null;
@@ -39,6 +41,8 @@ for (int index = 1; args[0] is not ("--probe-save" or "--probe-ultrawide" or "--
     if (args[0] == "--run" && args[index] == "--frames" && index + 1 < args.Length &&
         int.TryParse(args[++index], out var parsed) && parsed > 0 && limit is null)
         limit = parsed;
+    else if (args[0] == "--run" && args[index] == "--save-dir" && index + 1 < args.Length && saveDirectory is null)
+        saveDirectory = args[++index];
     else if (args[0] == "--run" && args[index] == "--scripted-controller" && !scripted)
         scripted = true;
     else if (args[0] == "--run" && args[index] == "--scripted-desktop" && !scriptedDesktop)
@@ -75,6 +79,25 @@ if (scriptedDesktop && scripted)
 try
 {
     var gameDirectory = AppContext.BaseDirectory;
+    if (args[0] == "--run")
+    {
+        // Also honor setup's chosen save folder when the EXE is opened directly.
+        var locations = Path.GetFullPath(Path.Combine(gameDirectory, "..", "..", "..", "locations.ini"));
+        if (saveDirectory is null && File.Exists(locations))
+            saveDirectory = File.ReadLines(locations).FirstOrDefault(line => line.StartsWith("Saves=", StringComparison.OrdinalIgnoreCase))?[6..];
+        if (!string.IsNullOrWhiteSpace(saveDirectory))
+            Environment.SetEnvironmentVariable("PIXEL_PORT_SAVE_DIR", Path.GetFullPath(saveDirectory));
+#if !DEBUG
+        if (args.Length == 1 || saveDirectory is not null)
+        {
+            var logs = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Pixel Recompilation", "Logs");
+            Directory.CreateDirectory(logs);
+            var log = TextWriter.Synchronized(new StreamWriter(Path.Combine(logs, "run.log"), append: false) { AutoFlush = true });
+            Console.SetOut(log);
+            Console.SetError(log);
+        }
+#endif
+    }
     var assemblyPath = Path.Combine(gameDirectory, "Arkedo Series - 03 PIXEL!.exe");
     var manifestPath = Path.GetFullPath(Path.Combine(gameDirectory, "..", "..", "manifest.json"));
     using var manifest = JsonDocument.Parse(File.ReadAllBytes(manifestPath));
