@@ -156,17 +156,18 @@ internal sealed class DesktopInputScript
                 Require(Field<Vector2>(player!, "Position").Y < jumpY, "Space did not lift the player");
                 Next("jump-ok"); break;
             case 31 when age > 12:
-                Next("scan-interact-special"); keyboard = new(Keys.Tab, Keys.E, Keys.Q); break;
+                Next("scan-mouse-interact-special"); keyboard = new(Keys.Tab, Keys.Q); Click(); break;
             case 32 when age > 4:
-                Require(Down(15) && Down(9) && Down(11), "scan/interact/special mappings failed");
+                Require(Down(15) && Down(9) && Down(11), "scan/mouse B/special mappings failed");
                 Next("bindings-ok"); break;
             case 33 when age > 8:
+                Require(!Down(9), "mouse release did not release B");
                 Next("focus-lost"); focused = false; keyboard = new(Keys.D); break;
             case 34 when age > 8:
                 Require(paused && !Down(1), "focus loss did not suppress input and pause");
                 Next("focus-restored-with-held-input"); focused = true; keyboard = new(Keys.Enter); Click(); break;
             case 35 when age > 12:
-                Require(paused && !Down(8), "held input activated after focus returned");
+                Require(paused && !Down(8) && !Down(9), "held input activated after focus returned");
                 Next("focus-requires-release"); break;
             case 36 when age > 8:
                 if (Field<bool>(GameAccess.Get(component!, "m_sprPause")!, "m_sprEftFadeOn")) break;

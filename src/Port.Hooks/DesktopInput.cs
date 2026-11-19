@@ -36,7 +36,7 @@ internal sealed class InputSession(Game game)
     private KeyboardState previousKeyboard;
     private readonly HashSet<Keys> blockedKeys = [];
     private MouseState previousMouse;
-    private bool sampled, waitForRelease;
+    private bool sampled, waitForRelease, blockedLeftButton;
     private string lastContext = "";
     private object? previousComponent;
     private string state = "", substate = "";
@@ -56,7 +56,12 @@ internal sealed class InputSession(Game game)
         string context = $"{state}/{substate}/{paused}";
         bool changedContext = context != lastContext || !ReferenceEquals(component, previousComponent);
         if (changedContext && sampled)
+        {
             foreach (var key in previousKeyboard.GetPressedKeys().Where(keyboard.IsKeyDown)) blockedKeys.Add(key);
+            if (previousMouse.LeftButton == ButtonState.Pressed && mouse.LeftButton == ButtonState.Pressed)
+                blockedLeftButton = true;
+        }
+        if (mouse.LeftButton == ButtonState.Released) blockedLeftButton = false;
         blockedKeys.RemoveWhere(keyboard.IsKeyUp);
         var targets = MenuTargets.Build(state, substate, component, paused);
         game.IsMouseVisible = targets.Count > 0;
@@ -68,6 +73,9 @@ internal sealed class InputSession(Game game)
             waitForRelease = false;
         var filtered = new KeyboardState(keyboard.GetPressedKeys().Where(key => !blockedKeys.Contains(key)).ToArray());
         Mapped = active && !waitForRelease ? KeyboardScheme.Translate(filtered, state == "GAME", paused, substate == "START") : default;
+        if (active && !waitForRelease && !changedContext && !blockedLeftButton && state == "GAME" && !paused &&
+            mouse.LeftButton == ButtonState.Pressed)
+            Mapped = new KeyboardState(Mapped.GetPressedKeys().Append(Keys.B).Distinct().ToArray());
 
         var selected = GameAccess.Get<PlayerIndex>(pad, "m_gpadPlayerIndex");
         var physical = GamePad.GetState(selected);

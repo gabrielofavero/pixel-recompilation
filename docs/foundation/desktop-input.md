@@ -4,12 +4,12 @@ The `desktop-input-v1` enhancement adds keyboard input and mouse menu hit testin
 
 ## Controls
 
-| Action | Keyboard |
+| Action | Keyboard / mouse |
 | --- | --- |
 | Move, climb, crouch; navigate menus/puzzles | WASD or arrow keys |
 | Jump / confirm / original A button | Space or Enter |
 | Run / original X button | Left or right Shift |
-| Interact, read signs, cancel / original B button | E or Backspace |
+| Interact, read signs, cancel / original B button | E or Backspace; left mouse button during gameplay |
 | Scan mode / original left trigger | Hold Tab |
 | Zoom/confirm a scan selection | Space or Enter |
 | Special action / original Y button | Q |
@@ -22,7 +22,7 @@ At the start prompt, Space or Enter selects the local player. Keyboard and the s
 
 Mouse movement selects available title menu entries and unlocked Continue levels. Left click activates the pointed option, the original New Game confirmation buttons, the start/intro/outro/ending prompts when ready, the title's Exit prompt, or the existing pause actions (Main Menu on the left, Continue on the right). Hidden Continue/Purchase options and locked levels have no mouse target. Mouse clicks during gameplay do not move or jump the player.
 
-A stationary pointer does not reselect an option after keyboard/controller navigation. Clicks are edge-triggered, and held keys are suppressed across menu/context transitions until released. Desktop input is ignored while the window is inactive, and focus restoration requires releasing held keys/the mouse button before accepting another action. When desktop input owns the session, losing focus uses the original disconnected-input pause path. Controller activity restores controller ownership and its original disconnect behavior.
+A stationary pointer does not reselect an option after keyboard/controller navigation. Menu clicks are edge-triggered. During gameplay, the left mouse button feeds the original B pressed/held input, just like E or Backspace. Held keys and the left mouse button are suppressed across menu/context transitions until released. Desktop input is ignored while the window is inactive, and focus restoration requires releasing held keys/the mouse button before accepting another action. When desktop input owns the session, losing focus uses the original disconnected-input pause path. Controller activity restores controller ownership and its original disconnect behavior.
 
 Mouse coordinates come from FNA's backbuffer-scaled `Mouse.GetState`; the hook does not scale them a second time. Menu row bounds derive from the original sprites, origins, and scales, with nonoverlapping row heights. Pause/Exit hit regions correspond to existing artwork; no additional UI is drawn.
 
