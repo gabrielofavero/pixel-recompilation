@@ -12,6 +12,25 @@ namespace Microsoft.Xna.Framework.Graphics
         private bool enabled;
         private Blend source = Blend.SourceAlpha;
         private Blend destination = Blend.InverseSourceAlpha;
+        internal BlendState Pipeline { get; private set; } = new();
+        internal SamplerState Sampler { get; } = new()
+        {
+            Filter = TextureFilter.Point,
+            AddressU = TextureAddressMode.Clamp,
+            AddressV = TextureAddressMode.Clamp
+        };
+
+        internal void Begin(SpriteBlendMode blend)
+        {
+            // FNA caches applied blend states by identity. A batch gets its own
+            // state so changing the next batch cannot modify an applied object.
+            Pipeline = new BlendState();
+            enabled = blend != SpriteBlendMode.None;
+            source = Blend.SourceAlpha;
+            destination = blend == SpriteBlendMode.Additive ? Blend.One : Blend.InverseSourceAlpha;
+            Apply();
+            device.SamplerStates[0] = Sampler;
+        }
 
         public bool AlphaBlendEnable
         {
@@ -27,13 +46,17 @@ namespace Microsoft.Xna.Framework.Graphics
         }
         private void Apply()
         {
-            if (!enabled) { device.BlendState = BlendState.Opaque; return; }
-            device.BlendState = (source, destination) switch
+            var desired = !enabled ? BlendState.Opaque : (source, destination) switch
             {
                 (Blend.SourceAlpha, Blend.One) => BlendState.Additive,
                 (Blend.SourceAlpha, Blend.InverseSourceAlpha) => BlendState.NonPremultiplied,
                 _ => throw new NotSupportedException($"Unsupported XNA3 blend mode: {source}, {destination}")
             };
+            Pipeline.ColorSourceBlend = desired.ColorSourceBlend;
+            Pipeline.ColorDestinationBlend = desired.ColorDestinationBlend;
+            Pipeline.AlphaSourceBlend = desired.AlphaSourceBlend;
+            Pipeline.AlphaDestinationBlend = desired.AlphaDestinationBlend;
+            device.BlendState = Pipeline;
         }
     }
 }
@@ -52,12 +75,13 @@ namespace Port.Bridge
         public static void Begin(SpriteBatch batch, SpriteBlendMode blend, SpriteSortMode sort, SaveStateMode save)
         {
             if (save != SaveStateMode.None) throw new NotSupportedException("XNA SaveStateMode is unsupported.");
-            batch.Begin(sort, blend switch
-            {
-                SpriteBlendMode.AlphaBlend => BlendState.NonPremultiplied,
-                SpriteBlendMode.Additive => BlendState.Additive,
-                _ => BlendState.Opaque
-            });
+            // XNA3 permits state changes between Begin and End. FNA reapplies its
+            // Begin arguments when flushing deferred sprites, so pass the same
+            // mutable states that the legacy setters update. Never mutate FNA's
+            // shared LinearClamp/PointClamp or blend-state singletons.
+            var state = GetRenderState(batch.GraphicsDevice);
+            state.Begin(blend);
+            batch.Begin(sort, state.Pipeline, state.Sampler, DepthStencilState.None, RasterizerState.CullNone);
         }
         public static RenderState GetRenderState(GraphicsDevice device) => States.GetValue(device, d => new RenderState(d));
         public static VertexElement[] GetVertexElements() => VertexPositionColor.VertexDeclaration.GetVertexElements();
@@ -73,6 +97,16 @@ namespace Port.Bridge
                 throw new NotSupportedException($"Unsupported XNA3 magnification filter: {filter}");
             state.Filter = TextureFilter.Point;
         }
+
+        public static TextureAddressMode MapLegacyAddress(TextureAddressMode legacy) => (int)legacy switch
+        {
+            1 => TextureAddressMode.Wrap,
+            2 => TextureAddressMode.Mirror,
+            3 => TextureAddressMode.Clamp,
+            _ => throw new NotSupportedException($"Unsupported XNA3 texture address mode: {(int)legacy}")
+        };
+        public static void SetAddressU(SamplerState state, TextureAddressMode value) => state.AddressU = MapLegacyAddress(value);
+        public static void SetAddressV(SamplerState state, TextureAddressMode value) => state.AddressV = MapLegacyAddress(value);
 
         public static Blend MapLegacyBlend(Blend legacy) => (int)legacy switch
         {

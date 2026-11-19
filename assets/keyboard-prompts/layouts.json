@@ -1,0 +1,33 @@
+{
+  "TITLE/TITLE_A_button": { "size": [128,128], "patches": [{ "label": "SPC", "bounds": [0,0,128,128] }] },
+  "TITLE/TITLE_B_button": { "size": [128,128], "patches": [{ "label": "BSP", "bounds": [0,0,128,128] }] },
+  "GAME/Tiles/GAME_Bk_sign_deco_B": { "size": [128,128], "patches": [{ "label": "E", "bounds": [0,0,128,128] }] },
+  "GAME/Scan/GAME_Sc_A_button": { "size": [128,128], "patches": [{ "label": "SPC", "bounds": [0,0,128,128] }] },
+  "GAME/Enigma/GAME_Enigma_A_button": { "size": [128,128], "patches": [{ "label": "SPC", "bounds": [0,0,128,128] }] },
+  "GAME/Enigma/GAME_Enigma_B_button": { "size": [128,128], "patches": [{ "label": "E", "bounds": [0,0,128,128] }] },
+  "GAME/Enigma/GAME_Enigma_X_button": { "size": [128,128], "patches": [{ "label": "SFT", "bounds": [0,0,128,128] }] },
+  "GAME/Enigma/GAME_Enigma_Y_button": { "size": [128,128], "patches": [{ "label": "Q", "bounds": [0,0,128,128] }] },
+  "GAME/Enigma/GAME_Enigma_Left_button": { "size": [128,128], "patches": [{ "label": "A", "bounds": [0,0,128,128] }] },
+  "GAME/Enigma/GAME_Enigma_Right_button": { "size": [128,128], "patches": [{ "label": "D", "bounds": [0,0,128,128] }] },
+  "GAME/Enigma/GAME_Enigma_Up_button": { "size": [128,128], "patches": [{ "label": "W", "bounds": [0,0,128,128] }] },
+  "GAME/Enigma/GAME_Enigma_Down_button": { "size": [128,128], "patches": [{ "label": "S", "bounds": [0,0,128,128] }] },
+  "OUTRO/OUTRO_A_button": { "size": [128,128], "patches": [{ "label": "SPC", "bounds": [0,0,128,128], "style": "blue" }] },
+  "INTRO/INTRO_LetsGo": { "size": [512,128], "patches": [{ "label": "SPC", "bounds": [90,0,128,128], "clear": [108,17,86,90], "style": "blue" }] },
+  "GAME/Zoom/GAME_Zoom_Goal_A": { "size": [280,280], "patches": [{ "label": "SPC", "bounds": [76,76,128,128], "clear": [94,94,92,92], "style": "orange" }] },
+  "GAME/Zoom/GAME_Zoom_Escape": { "size": [256,128], "patches": [{ "label": "E", "bounds": [26,18,92,92], "clear": [30,19,78,88], "style": "blue" }] },
+  "GAME/Interface/GAME_It_Picto_zoom": { "size": [128,128], "patches": [{ "label": "TAB", "bounds": [51,90,54,24], "clear": [49,84,62,42], "badge": false, "style": "blue" }] },
+  "GAME/Interface/GAME_It_Jauge": { "size": [1080,88], "patches": [
+    { "label": "Q", "bounds": [612,-8,112,112], "clear": [635,0,85,88], "style": "blue" },
+    { "label": "Q", "bounds": [964,-16,128,128], "clear": [987,0,93,88], "style": "blue" }
+  ] },
+  "GAME/Interface/GAME_It_TextBox": { "size": [750,344], "patches": [{ "label": "E", "bounds": [624,252,100,100], "clear": [640,263,68,78], "style": "blue" }] },
+  "GAME/Interface/GAME_It_Pause": { "size": [1280,720], "patches": [
+    { "label": "ESC", "bounds": [906,454,128,128], "clear": [916,470,111,98], "background": true, "style": "blue" }
+  ] },
+  "CONT/CONT_Bg": { "size": [1280,720], "patches": [
+    { "label": "BSP", "bounds": [47,561,128,128], "clear": [67,580,89,92], "background": true, "style": "blue" },
+    { "label": "SPC", "bounds": [1053,561,128,128], "clear": [1073,580,89,92], "background": true, "style": "blue" }
+  ] },
+  "CREDITS/CREDITS_Bg": { "size": [1280,720], "patches": [{ "label": "BSP", "bounds": [1012,545,128,128], "clear": [1030,563,94,93], "background": true, "style": "blue" }] },
+  "TITLE/TITLE_Start": { "size": [1280,720], "patches": [{ "label": "PRESS SPC TO PLAY", "bounds": [443,478,404,32], "clear": [410,448,470,96], "badge": false, "style": "blue" }] }
+}

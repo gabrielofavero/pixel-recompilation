@@ -6,7 +6,7 @@ namespace Port.Hooks;
 
 internal static class GameAccess
 {
-    private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+    private const BindingFlags Flags = BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic;
     private static readonly ConcurrentDictionary<(Type, string), MemberInfo> Members = new();
     internal static object? Get(object instance, string name)
     {
@@ -16,9 +16,14 @@ internal static class GameAccess
         return member is FieldInfo field ? field.GetValue(instance) : ((PropertyInfo)member).GetValue(instance);
     }
     internal static T Get<T>(object instance, string name) => (T)Get(instance, name)!;
-    internal static void Set(object instance, string name, object value) =>
-        ((FieldInfo)Members.GetOrAdd((instance.GetType(), name), key =>
-            key.Item1.GetField(key.Item2, Flags) ?? throw new MissingFieldException(key.Item1.FullName, key.Item2))).SetValue(instance, value);
+    internal static void Set(object instance, string name, object value)
+    {
+        var member = Members.GetOrAdd((instance.GetType(), name), key =>
+            (MemberInfo?)key.Item1.GetField(key.Item2, Flags) ?? key.Item1.GetProperty(key.Item2, Flags)
+            ?? throw new MissingMemberException(key.Item1.FullName, key.Item2));
+        if (member is FieldInfo field) field.SetValue(instance, value);
+        else ((PropertyInfo)member).SetValue(instance, value);
+    }
     internal static void Select(object component, int index) => component.GetType()
         .GetMethod("SelectMenu", Flags)!.Invoke(component, [index]);
 

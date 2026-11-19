@@ -2,6 +2,7 @@
   <PropertyGroup><OutputType>Exe</OutputType><AssemblyName>Port.InputTests</AssemblyName></PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/Port.Hooks/Port.Hooks.csproj" />
+    <ProjectReference Include="../../src/Port.Bridge/Port.Bridge.csproj" />
     <Reference Include="FNA"><HintPath>$(FnaDependencyDirectory)/managed/FNA.dll</HintPath></Reference>
     <Reference Include="Mono.Cecil"><HintPath>$(FnaDependencyDirectory)/managed/Mono.Cecil.dll</HintPath></Reference>
   </ItemGroup>

@@ -8,9 +8,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using SDL3;
 
-if (args.Length < 1 || args[0] is not ("--run" or "--check-load" or "--probe-content" or "--probe-audio" or "--probe-menu-audio" or "--probe-save"))
+// Preserve pixel edges through FNA's final backbuffer-to-window scaling too.
+Environment.SetEnvironmentVariable("FNA3D_BACKBUFFER_SCALE_NEAREST",
+    Environment.GetEnvironmentVariable("FNA3D_BACKBUFFER_SCALE_NEAREST") ?? "1");
+
+if (args.Length < 1 || args[0] is not ("--run" or "--check-load" or "--probe-content" or "--probe-audio" or "--probe-menu-audio" or "--probe-save" or "--probe-ultrawide" or "--probe-prompts" or "--probe-signs"))
 {
-    Console.Error.WriteLine("Usage: Port.Launcher --run [--frames N] [--scripted-controller [--play-frames N]] [--scripted-save complete|continue] [--scripted-desktop] | --check-load | --probe-content | --probe-audio | --probe-menu-audio | --probe-save <read|write|reset> <isolated-save-directory>");
+    Console.Error.WriteLine("Usage: Port.Launcher --run [--frames N] [--scripted-controller [--play-frames N]] [--scripted-save complete|continue] [--scripted-desktop] | --check-load | --probe-content | --probe-audio | --probe-menu-audio | --probe-save <read|write|reset> <isolated-save-directory> | --probe-ultrawide <capture-directory> | --probe-prompts <capture-directory> | --probe-signs <capture-directory> [text-filter]");
     return 2;
 }
 int? limit = null;
@@ -24,7 +28,13 @@ if (args[0] == "--probe-save" && (args.Length != 3 || args[1] is not ("read" or 
     Console.Error.WriteLine("--probe-save requires read, write, or reset and an isolated save directory.");
     return 2;
 }
-for (int index = 1; args[0] != "--probe-save" && index < args.Length; index++)
+if (args[0] is "--probe-ultrawide" or "--probe-prompts" && args.Length != 2 ||
+    args[0] == "--probe-signs" && args.Length is not (2 or 3))
+{
+    Console.Error.WriteLine($"{args[0]} requires a capture directory.");
+    return 2;
+}
+for (int index = 1; args[0] is not ("--probe-save" or "--probe-ultrawide" or "--probe-prompts" or "--probe-signs") && index < args.Length; index++)
 {
     if (args[0] == "--run" && args[index] == "--frames" && index + 1 < args.Length &&
         int.TryParse(args[++index], out var parsed) && parsed > 0 && limit is null)
@@ -90,9 +100,9 @@ try
         SaveCoverage.Run(assembly, args[1], args[2]);
         return 0;
     }
-    if (args[0] == "--probe-content")
+    if (args[0] is "--probe-content" or "--probe-prompts")
     {
-        using var coverage = new ContentCoverageGame(Path.Combine(gameDirectory, "Content"));
+        using var coverage = new ContentCoverageGame(Path.Combine(gameDirectory, "Content"), args[0] == "--probe-prompts" ? args[1] : null);
         coverage.Run();
         return 0;
     }
@@ -129,6 +139,24 @@ try
         return failed == 0 ? 0 : 1;
     }
     using var game = (Game)Activator.CreateInstance(gameType)!;
+    if (args[0] == "--probe-signs")
+    {
+        Environment.SetEnvironmentVariable("PIXEL_PORT_SAVE_DIR", Path.Combine(Path.GetFullPath(args[1]), "saves"));
+        var probe = new SignProbe(game, args[1], args.Length == 3 ? args[2] : null);
+        game.Components.Add(probe);
+        game.Run();
+        probe.Verify();
+        return 0;
+    }
+    if (args[0] == "--probe-ultrawide")
+    {
+        Environment.SetEnvironmentVariable("PIXEL_PORT_SAVE_DIR", Path.Combine(Path.GetFullPath(args[1]), "saves"));
+        var probe = new UltrawideProbe(game, args[1]);
+        game.Components.Add(probe);
+        game.Run();
+        probe.Verify();
+        return 0;
+    }
     if ((scripted || scriptedDesktop) && string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("PIXEL_PORT_SAVE_DIR")))
         Environment.SetEnvironmentVariable("PIXEL_PORT_SAVE_DIR", Path.GetFullPath(Path.Combine(gameDirectory, "..", "..", "probe-saves")));
     using var virtualPad = scripted ? new VirtualGamepad() : null;
@@ -168,6 +196,8 @@ internal sealed class SessionProbe : GameComponent
     private readonly SaveProgressionProbe? saveProgression;
     private bool progressionReady;
     private readonly DesktopInputScript? desktopInput;
+    private int optionsControllerStep, optionsControllerAge;
+    private bool optionsControllerDone;
 
     public SessionProbe(Game game, Type gameType, int? limit, VirtualGamepad? virtualPad, int playFrames, string? saveScript, bool scriptedDesktop) : base(game)
     {
@@ -248,6 +278,7 @@ internal sealed class SessionProbe : GameComponent
             return;
         }
         if (pressed is not null) return;
+        if (saveProgression is null && !optionsControllerDone && DriveHelpController(state, substate, component)) return;
         if (saveProgression is not null && !progressionReady && saveProgression.Handle(state, substate, component))
         {
             if (saveProgression.Ready)
@@ -316,6 +347,59 @@ internal sealed class SessionProbe : GameComponent
         var padType = game.GetType().Assembly.GetType("LowLevel.CLASS_GAMEPAD")!;
         var pad = padType.GetField("m_gpad")!.GetValue(null);
         Console.WriteLine($"SCRIPT_PLAYER selected={padType.GetField("m_gpadPlayerIndex")!.GetValue(pad)} active={game.IsActive}");
+    }
+
+    private bool DriveHelpController(string? state, string? substate, object? component)
+    {
+        if (optionsControllerStep == 0 && (state != "START" || substate != "SELECTION" || frames <= 550)) return false;
+        if (++optionsControllerAge < 10) return true;
+        var options = Port.Hooks.HelpOptions.Session(game);
+        void Push(SDL.SDL_GamepadButton button, string action)
+        {
+            Press(button, action);
+            optionsControllerStep++;
+            optionsControllerAge = 0;
+        }
+        var a = SDL.SDL_GamepadButton.SDL_GAMEPAD_BUTTON_SOUTH;
+        var b = SDL.SDL_GamepadButton.SDL_GAMEPAD_BUTTON_EAST;
+        var down = SDL.SDL_GamepadButton.SDL_GAMEPAD_BUTTON_DPAD_DOWN;
+        switch (optionsControllerStep)
+        {
+            case 0:
+                if (Port.Hooks.GameAccess.Get<int>(component!, "m_menuChoix") != 2)
+                { Press(down, "select help"); optionsControllerAge = 0; }
+                else Push(a, "open help");
+                break;
+            case 1:
+                Require(options.Page == Port.Hooks.HelpPage.Home, "open help"); Push(a, "cycle display"); break;
+            case 2:
+                Require(options.Settings.Mode == Port.Hooks.DisplayMode.Fullscreen, "apply display immediately");
+                Push(SDL.SDL_GamepadButton.SDL_GAMEPAD_BUTTON_DPAD_LEFT, "restore borderless"); break;
+            case 3: Push(down, "select resolution"); break;
+            case 4: Push(SDL.SDL_GamepadButton.SDL_GAMEPAD_BUTTON_DPAD_LEFT, "cycle resolution"); break;
+            case 5: Push(SDL.SDL_GamepadButton.SDL_GAMEPAD_BUTTON_DPAD_RIGHT, "restore resolution"); break;
+            case 6: Push(down, "select credits"); break;
+            case 7: Push(a, "open credits"); break;
+            case 8 when state == "CREDITS" && substate == "CREDITS": Push(b, "back from credits"); break;
+            case 9 when state == "TITLE" && options.Page == Port.Hooks.HelpPage.Home:
+                Push(b, "back from help"); break;
+            case 10 when !options.IsOpen:
+                if (Port.Hooks.GameAccess.Get<int>(component!, "m_menuChoix") != 0)
+                { Press(SDL.SDL_GamepadButton.SDL_GAMEPAD_BUTTON_DPAD_UP, "select new game"); optionsControllerAge = 0; }
+                else
+                {
+                    optionsControllerDone = true;
+                    // The existing driver accepts New Game on START; preserve its normal transition path.
+                    Press(a, "new game after help");
+                    Console.WriteLine("OPTIONS_CONTROLLER_RESULT display=ok resolution=ok credits=ok back=ok");
+                }
+                break;
+        }
+        return true;
+        static void Require(bool condition, string action)
+        {
+            if (!condition) throw new InvalidOperationException("Controller Help/Options fixture failed: " + action);
+        }
     }
 }
 

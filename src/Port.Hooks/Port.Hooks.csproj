@@ -1,6 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup><AssemblyName>Port.Hooks</AssemblyName></PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Include="../../assets/keyboard-prompts/keyboard.svg" LogicalName="KeyboardPrompts.keyboard.svg" />
+    <EmbeddedResource Include="../../assets/keyboard-prompts/layouts.json" LogicalName="KeyboardPrompts.layouts.json" />
     <Reference Include="FNA"><HintPath>$(FnaDependencyDirectory)/managed/FNA.dll</HintPath><Private>true</Private></Reference>
     <InternalsVisibleTo Include="Port.Launcher" />
     <InternalsVisibleTo Include="Port.InputTests" />

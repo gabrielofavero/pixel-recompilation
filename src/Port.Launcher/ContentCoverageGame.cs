@@ -6,16 +6,24 @@ internal sealed class ContentCoverageGame : Game
 {
     private readonly string root;
     private readonly GraphicsDeviceManager graphics;
+    private readonly string? promptDirectory;
 
-    public ContentCoverageGame(string root)
+    public ContentCoverageGame(string root, string? promptDirectory = null)
     {
         this.root = root;
+        this.promptDirectory = promptDirectory;
         graphics = new GraphicsDeviceManager(this) { PreferredBackBufferWidth = 640, PreferredBackBufferHeight = 360 };
         Window.Title = "PIXEL! content coverage";
     }
 
     protected override void LoadContent()
     {
+        if (promptDirectory is not null)
+        {
+            PromptArtworkProbe.Run(this, root, promptDirectory);
+            base.LoadContent();
+            return;
+        }
         int count = 0, custom = 0;
         foreach (var path in Directory.GetFiles(root, "*.xnb", SearchOption.AllDirectories).Order(StringComparer.Ordinal))
         {

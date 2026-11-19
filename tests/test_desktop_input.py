@@ -21,11 +21,26 @@ class DesktopInputChecks(unittest.TestCase):
         self.assertIn("DESKTOP_INPUT_TESTS_OK", result.stdout)
 
     def test_changed_input_anchor_rejected_before_output(self):
+        self.assert_changed_anchor_rejected("LowLevel.CLASS_GAMEPAD", "Update")
+
+    def test_changed_title_display_anchor_rejected_before_output(self):
+        self.assert_changed_anchor_rejected("Scale.TITLE.TITLEMain", "Display")
+
+    def test_changed_tile_draw_anchor_rejected_before_output(self):
+        self.assert_changed_anchor_rejected("Scale.GAME.Level", "DrawTiles")
+
+    def test_changed_camera_anchor_rejected_before_output(self):
+        self.assert_changed_anchor_rejected("Scale.GAME.GAME_Camera", "GACM_Init")
+
+    def test_changed_scan_anchor_rejected_before_output(self):
+        self.assert_changed_anchor_rejected("Scale.GAME.Level", "ProcessScanMode")
+
+    def assert_changed_anchor_rejected(self, type_name, method_name):
         with tempfile.TemporaryDirectory(prefix="input-anchor-", dir=REPO / "private") as directory:
             directory = Path(directory)
             anchors = json.loads((REPO / "config/patch-anchors.json").read_text())
             method = next(method for assembly in anchors["assemblies"] for method in assembly["methods"]
-                          if method["type"] == "LowLevel.CLASS_GAMEPAD" and method["name"] == "Update")
+                          if method["type"] == type_name and method["name"] == method_name)
             method["ilSha256"] = "0" * 64
             path = directory / "anchors.json"
             path.write_text(json.dumps(anchors))

@@ -1,0 +1,17 @@
+# Help and Options
+
+The main menu's former Credits entry is **Help and Options**. It opens three rows on the original title background: **Display**, **Resolution**, and **Credits**. New Game, Continue and Credits retain their original two-frame texture atlases. New labels use the existing font with glyph size, baseline and blue color ramps measured from the original New Game atlas. The original animated cursor, sprite and Z-sort pipeline are retained. There is no separate panel, Controls page or Apply screen.
+
+Navigate with arrows/WASD or the D-pad. Left/right cycles the selected setting; Enter/A or clicking a setting cycles forward. Changes apply and save immediately. Display offers Windowed, Borderless and Fullscreen; Borderless is the default. Resolution choices fit both monitor dimensions, include common/native ultrawide modes and have a fallback for small displays. Failed changes restore the previous settings and show a message.
+
+Backspace, Esc, controller B/Back, or a left-click outside the three option labels returns to the main menu. This includes the lower-left Select / Back prompt and empty background. Esc is accepted without an on-screen label. Leaving the original credits returns to Help and Options with Credits selected. Original credits transitions, fades, and music remain in the prepared executable.
+
+Tutorial sign text and their interact prompts explain keyboard equivalents after keyboard/mouse input, and switch back on controller activity. They update during gameplay and while a sign is open. The original sign wording is preserved for controller use. [Keyboard artwork](keyboard-artwork.md) covers the shared SVG alphabet/circular badges, swaps throughout the game, live reload and full texture audit. Bindings are documented in [Desktop input](desktop-input.md).
+
+Borderless uses SDL desktop fullscreen. Fullscreen requests an exclusive display mode at the chosen dimensions when available, otherwise the desktop mode. Driver rejection falls back to desktop fullscreen with an on-screen explanation. The backbuffer uses the selected resolution. [Ultrawide gameplay](ultrawide.md) follows the selected aspect ratio; choosing 1080p returns to 16:9 even on an ultrawide monitor. Menus and button puzzles keep a 1280 x 720 canvas; scanning and zoom maps use the wider gameplay canvas. Mouse hit testing reverses FNA window scaling and letterboxing; black-bar clicks fall outside menu targets.
+
+Settings live in `%LOCALAPPDATA%/Pixel Recompilation/Saves/display-settings.json`, or in `PIXEL_PORT_SAVE_DIR` when set. They are separate from progression. Missing/malformed settings use defaults; settings saved on a larger screen are clamped to the available choices.
+
+`help-options-v1` installs guarded hooks into GameScale.Initialize/Draw and TITLEMain.ProcessSelection/Display. Additional menu atlases are generated from the existing font and original menu reference at runtime and disposed with the game. The manifest records hook/bridge DLL hashes. Reprepare after hook or graphics bridge changes.
+
+`Port.InputTests` checks resolution filtering, letterboxing, mouse conversion, settings persistence/fallback, keyboard hint translation, graphics enum mappings and prepared hook installation. The desktop and virtual-controller fixtures cycle display/resolution settings and return through Credits before their gameplay checks. The desktop fixture also checks mouse Back on the prompt and background, Backspace, and Esc. Run with isolated saves, as described in [Desktop input](desktop-input.md).

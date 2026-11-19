@@ -48,6 +48,8 @@ internal static class AssemblyRewriter
             PatchContentLoads(module, anchors);
             PatchStorage(module, anchors);
             Patches.DesktopInputPatch.Apply(module, anchors);
+            Patches.HelpOptionsPatch.Apply(module, anchors);
+            Patches.UltrawidePatch.Apply(module, anchors);
         }
         foreach (var reference in originalRefs) module.AssemblyReferences.Remove(reference);
         using var output = new MemoryStream();
@@ -101,7 +103,7 @@ internal static class AssemblyRewriter
         var elements = module.ImportReference(bridge.GetMethod(nameof(Port.Bridge.LegacyGraphics.GetVertexElements))!);
         var declaration = module.ImportReference(bridge.GetMethod(nameof(Port.Bridge.LegacyGraphics.CreateVertexDeclaration))!);
         var magFilter = module.ImportReference(bridge.GetMethod(nameof(Port.Bridge.LegacyGraphics.SetMagFilter))!);
-        int effects = 0, begins = 0, renders = 0, fields = 0, declarations = 0, filters = 0;
+        int effects = 0, begins = 0, renders = 0, fields = 0, declarations = 0, filters = 0, addresses = 0;
         foreach (var type in Enumerate(module.Types))
         foreach (var method in type.Methods)
         {
@@ -151,6 +153,13 @@ internal static class AssemblyRewriter
                     replacement = magFilter;
                     filters++;
                 }
+                else if (target.DeclaringType.FullName == "Microsoft.Xna.Framework.Graphics.SamplerState" &&
+                         target.Name is "set_AddressU" or "set_AddressV" && target.Parameters.Count == 1)
+                {
+                    replacement = module.ImportReference(bridge.GetMethod(target.Name == "set_AddressU"
+                        ? nameof(Port.Bridge.LegacyGraphics.SetAddressU) : nameof(Port.Bridge.LegacyGraphics.SetAddressV))!);
+                    addresses++;
+                }
                 if (replacement is null) continue;
                 if (!allowed.Contains(method.MetadataToken.ToInt32()))
                     throw new InvalidDataException($"Legacy graphics patch has no IL anchor: {type.FullName}.{method.Name}");
@@ -158,8 +167,8 @@ internal static class AssemblyRewriter
                 instruction.Operand = replacement;
             }
         }
-        if (effects != 1 || begins != 4 || renders != 12 || fields != 1 || declarations != 1 || filters != 1)
-            throw new InvalidDataException($"Legacy graphics call-site count changed: effect={effects}, begin={begins}, render={renders}, fields={fields}, declarations={declarations}, filters={filters}");
+        if (effects != 1 || begins != 4 || renders != 12 || fields != 1 || declarations != 1 || filters != 1 || addresses != 8)
+            throw new InvalidDataException($"Legacy graphics call-site count changed: effect={effects}, begin={begins}, render={renders}, fields={fields}, declarations={declarations}, filters={filters}, addresses={addresses}");
     }
 
     private static IEnumerable<Mono.Cecil.TypeDefinition> Enumerate(IEnumerable<Mono.Cecil.TypeDefinition> types)

@@ -17,7 +17,10 @@ internal static class MenuTargets
         if (state is "START" or "TITLE")
         {
             if (substate == "START")
+            {
+                Region("quit", Keys.Escape, new(60, 590, 210, 64));
                 Sprite("start", GameAccess.Get<object[]>(component, "m_sprPressStart")[0], Keys.Space);
+            }
             else if (substate == "SELECTION")
             {
                 var sprites = GameAccess.Get<object[]>(component, "m_sprMenuChoix");
@@ -25,7 +28,8 @@ internal static class MenuTargets
                 {
                     if (i == 1 && !GameAccess.Get<bool>(component, "m_continue")) continue;
                     if (i == 3 && !GameAccess.Get<bool>(component, "m_isTrialMode")) continue;
-                    Sprite("title-" + i, sprites[i], Keys.A, i, 42);
+                    if (i == 2) targets.Add(new("title-2", new(400, 562, 490, 42), Keys.A, 2));
+                    else Sprite("title-" + i, sprites[i], Keys.A, i, 42);
                 }
                 Region("quit", Keys.Escape, new(60, 590, 210, 64));
             }
@@ -39,11 +43,14 @@ internal static class MenuTargets
                 }
             }
         }
+        else if (state == "CREDITS" && substate == "CREDITS")
+            Region("credits-back", Keys.B, new(60, 590, 250, 80));
         else if (state == "CONTINUE" && substate == "SELECTION")
         {
             var sprites = GameAccess.Get<object[]>(component, "m_sprMenuChoix");
             int maximum = GameAccess.Get<int>(component, "m_menuChoixMax");
             for (int i = 0; i <= maximum; i++) Sprite("level-" + i, sprites[i], Keys.A, i, 42);
+            Region("levels-back", Keys.B, new(60, 590, 250, 80));
         }
         else if (state == "GAME" && paused)
         {

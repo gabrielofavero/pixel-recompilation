@@ -1,0 +1,1621 @@
+{
+  "textureCount": 268,
+  "replacementTextureCount": 23,
+  "generatedLayouts": [],
+  "fontAssets": [
+    "GAME/Font/GAME_TextBox",
+    "GAME/Font/GAME_Timer",
+    "tmp/hop"
+  ],
+  "review": "All contact sheets visually reviewed for standalone and baked controller prompts. Fonts retain original text rendering; keyboard sign wording is translated separately.",
+  "textures": [
+    {
+      "asset": "CONT/CONT_Bg",
+      "width": 1280,
+      "height": 720,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "CONT/CONT_Clear",
+      "width": 164,
+      "height": 164,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "CONT/CONT_Menu_cave",
+      "width": 768,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "CONT/CONT_Menu_city",
+      "width": 768,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "CONT/CONT_Menu_grassland",
+      "width": 768,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "CONT/CONT_Menu_sky",
+      "width": 768,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "CONT/CONT_Menu_space",
+      "width": 768,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "CONT/CONT_Menu_tree",
+      "width": 768,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "CONT/CONT_Tresor",
+      "width": 128,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "CREDITS/CREDITS_Bg",
+      "width": 1280,
+      "height": 720,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "END/END_Bg1",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "END/END_Bg2",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_caves",
+      "width": 4096,
+      "height": 1440,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_degrade",
+      "width": 16,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_house",
+      "width": 3656,
+      "height": 1400,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_intro_lvl_0",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_intro_lvl_1",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_intro_lvl_2",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_intro_lvl_3",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_intro_lvl_4",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_intro_lvl_5",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_intro_lvl_6",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_night",
+      "width": 4096,
+      "height": 1440,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_night_tree",
+      "width": 4096,
+      "height": 1440,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_prairie",
+      "width": 4096,
+      "height": 1440,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_sky",
+      "width": 4096,
+      "height": 1440,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_space",
+      "width": 4096,
+      "height": 1440,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_tree",
+      "width": 4096,
+      "height": 1440,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Backgrounds/GAME_BG_ville",
+      "width": 4096,
+      "height": 1440,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_crouch",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_dead",
+      "width": 4352,
+      "height": 512,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_drowned",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_drowned_return",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_fall",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_hit",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_hit_crouch",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_idle",
+      "width": 3584,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_jump",
+      "width": 768,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_ladder_climb",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_ladder_idle",
+      "width": 1536,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_meow",
+      "width": 2560,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_run",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_scan",
+      "width": 176,
+      "height": 176,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_spin_run",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_spin_walk",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_toxic",
+      "width": 704,
+      "height": 176,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_walk",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Cat/GAME_Cat_win",
+      "width": 4352,
+      "height": 512,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Acorn/GAME_Acorn_die",
+      "width": 256,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Acorn/GAME_Acorn_move",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Alien/GAME_Alien_attack",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Alien/GAME_Alien_die",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Alien/GAME_Alien_move",
+      "width": 1280,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Apple/GAME_Apple_die",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Apple/GAME_Apple_move",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Bird/GAME_Bird_attack",
+      "width": 256,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Bird/GAME_Bird_die",
+      "width": 256,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Bird/GAME_Bird_move",
+      "width": 768,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Boss/GAME_Boss_attack",
+      "width": 2304,
+      "height": 768,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Boss/GAME_Boss_die",
+      "width": 768,
+      "height": 768,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Boss/GAME_Boss_jump",
+      "width": 1536,
+      "height": 768,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Boss/GAME_Boss_move",
+      "width": 1536,
+      "height": 768,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Box/GAME_Box_die",
+      "width": 2048,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Box/GAME_Box_move",
+      "width": 768,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Bulldog/GAME_Bulldog_attack",
+      "width": 264,
+      "height": 264,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Bulldog/GAME_Bulldog_die",
+      "width": 528,
+      "height": 264,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Bulldog/GAME_Bulldog_move",
+      "width": 1584,
+      "height": 264,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Chestnut/GAME_Chestnut_die",
+      "width": 256,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Chestnut/GAME_Chestnut_move",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Cosmocat/GAME_Cosmocat_die",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Cosmocat/GAME_Cosmocat_move",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Duck/GAME_Duck_die",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Duck/GAME_Duck_move",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Ducksoldier/GAME_Ducksoldier_die",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Ducksoldier/GAME_Ducksoldier_move",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Flower/GAME_Flower_die",
+      "width": 256,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Flower/GAME_Flower_move",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Ghost/GAME_Ghost_attack",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Ghost/GAME_Ghost_die",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Ghost/GAME_Ghost_move",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Hedgehog/GAME_Hedgehog_die",
+      "width": 256,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Hedgehog/GAME_Hedgehog_move",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Mouse/GAME_Mouse_attack",
+      "width": 768,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Mouse/GAME_Mouse_die",
+      "width": 256,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Mouse/GAME_Mouse_jump",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Mouse/GAME_Mouse_move",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/MrHat/GAME_MrHat_die",
+      "width": 256,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/MrHat/GAME_MrHat_move",
+      "width": 768,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Mushroom/GAME_Mushroom_die",
+      "width": 768,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Mushroom/GAME_Mushroom_move",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Pig/GAME_Pig_attack",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Pig/GAME_Pig_die",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Pig/GAME_Pig_move",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Robot/GAME_Robot_attack",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Robot/GAME_Robot_die",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Robot/GAME_Robot_jump",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Robot/GAME_Robot_move",
+      "width": 1280,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Rockhead/GAME_Rockhead_die",
+      "width": 528,
+      "height": 264,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Rockhead/GAME_Rockhead_move",
+      "width": 264,
+      "height": 264,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Spacecow/GAME_Spacecow_attack",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Spacecow/GAME_Spacecow_die",
+      "width": 512,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Spacecow/GAME_Spacecow_move",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Trunk/GAME_Trunk_die",
+      "width": 256,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/Trunk/GAME_Trunk_move",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enemies/WeatherMachine/GAME_WeatherMachine_move",
+      "width": 792,
+      "height": 264,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_A_button",
+      "width": 128,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Action_answer",
+      "width": 200,
+      "height": 120,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Action_cut",
+      "width": 122,
+      "height": 72,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Action_eradicate",
+      "width": 200,
+      "height": 120,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Action_open",
+      "width": 200,
+      "height": 120,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Action_switch",
+      "width": 129,
+      "height": 46,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Action_turnon",
+      "width": 200,
+      "height": 120,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_B_button",
+      "width": 128,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Bg",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Cut",
+      "width": 5120,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Down_button",
+      "width": 128,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Left_button",
+      "width": 128,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Light",
+      "width": 1872,
+      "height": 624,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl1-1",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl1-2",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl1-3",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl2-1",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl2-2",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl2-3",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl3-1",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl3-2",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl3-3",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl4-1",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl4-2",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl4-3",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl5-1",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl5-2",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl5-3",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl6-1",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl6-2",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Lvl6-3",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Mushroom",
+      "width": 2600,
+      "height": 650,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Number_arrows",
+      "width": 128,
+      "height": 64,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Number_cursor",
+      "width": 144,
+      "height": 144,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Number_figures",
+      "width": 960,
+      "height": 96,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_QTE",
+      "width": 624,
+      "height": 624,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_QTE_big",
+      "width": 624,
+      "height": 624,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Quit",
+      "width": 129,
+      "height": 46,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Right_button",
+      "width": 128,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Rockhead",
+      "width": 624,
+      "height": 624,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_SnowMatic",
+      "width": 1216,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Switch",
+      "width": 1248,
+      "height": 624,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Treasure",
+      "width": 1824,
+      "height": 608,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Up_button",
+      "width": 128,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_X_button",
+      "width": 128,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Enigma/GAME_Enigma_Y_button",
+      "width": 128,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_Energy",
+      "width": 240,
+      "height": 80,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_Jauge",
+      "width": 1080,
+      "height": 88,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_Jauge_glow",
+      "width": 1025,
+      "height": 25,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_Jauge_pattern",
+      "width": 15,
+      "height": 15,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_Jauge_pattern_full",
+      "width": 15,
+      "height": 15,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_Lose_1",
+      "width": 796,
+      "height": 200,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_Lose_2",
+      "width": 566,
+      "height": 102,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_Mask_Lumiere",
+      "width": 650,
+      "height": 650,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_Pause",
+      "width": 1280,
+      "height": 720,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_Picto_zoom",
+      "width": 128,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_Saving",
+      "width": 128,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_TextBox",
+      "width": 750,
+      "height": 344,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_Tresor",
+      "width": 256,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_Win_1",
+      "width": 858,
+      "height": 200,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Interface/GAME_It_Win_2",
+      "width": 566,
+      "height": 102,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Scan/GAME_Sc_A_button",
+      "width": 128,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Scan/GAME_Sc_Action_zoom",
+      "width": 200,
+      "height": 120,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Scan/GAME_Sc_Blur_zoom",
+      "width": 2560,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Scan/GAME_Sc_Curseur",
+      "width": 256,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk1",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk2",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk3",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk4",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk5",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk6",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk7",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk8",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_checkpoint",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_checkpoint_deco",
+      "width": 2112,
+      "height": 264,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_cloud",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_destruk",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_BK_end",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_BK_end_deco",
+      "width": 356,
+      "height": 356,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_enigma",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_exit",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_exit_deco",
+      "width": 185,
+      "height": 185,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_ice",
+      "width": 2136,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_ladder",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_light",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_pic_bas",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_pic_haut",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_BK_sign",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_sign_deco",
+      "width": 128,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_sign_deco_B",
+      "width": 128,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_spring",
+      "width": 178,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_toxic1",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_toxic2",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_treasure",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_tree_cut_off",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_tree_cut_on",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_tree_leaves",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_tree_leaves_deco",
+      "width": 360,
+      "height": 360,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_tree_wood",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_tree_wood_down",
+      "width": 89,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Tiles/GAME_Bk_water",
+      "width": 356,
+      "height": 89,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_cursor",
+      "width": 320,
+      "height": 320,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_cursor_arrows",
+      "width": 288,
+      "height": 72,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Escape",
+      "width": 256,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Goal_A",
+      "width": 280,
+      "height": 280,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Goal_exclamation",
+      "width": 1400,
+      "height": 280,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Mini_bordure",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Mini_fond",
+      "width": 180,
+      "height": 180,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Mini_marqueur",
+      "width": 14,
+      "height": 14,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_radar",
+      "width": 1088,
+      "height": 136,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Schema",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_shade",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Square_arrows_1",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Square_arrows_2",
+      "width": 1024,
+      "height": 256,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Square_full",
+      "width": 280,
+      "height": 280,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Square_goal",
+      "width": 280,
+      "height": 280,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Square_help",
+      "width": 280,
+      "height": 280,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Square_start",
+      "width": 280,
+      "height": 279,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Square_stop_1",
+      "width": 280,
+      "height": 280,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Square_stop_2",
+      "width": 280,
+      "height": 280,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "GAME/Zoom/GAME_Zoom_Timer",
+      "width": 256,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "INTRO/INTRO_Bg1-1",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "INTRO/INTRO_Bg1-2",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "INTRO/INTRO_Bg2-1",
+      "width": 5120,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "INTRO/INTRO_Bg2-2",
+      "width": 5120,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "INTRO/INTRO_Bg3",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "INTRO/INTRO_LetsGo",
+      "width": 512,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "LOGO/LOGO_Arkedo",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "LOGO/LOGO_Pasta",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "OUTRO/OUTRO_A_button",
+      "width": 128,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "OUTRO/OUTRO_Bg1",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "OUTRO/OUTRO_Bg2",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/PART_big_square",
+      "width": 64,
+      "height": 64,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/PART_bubbles",
+      "width": 512,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/PART_Cheese_left",
+      "width": 128,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/PART_Cheese_right",
+      "width": 128,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/Part_clouds",
+      "width": 512,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/PART_impact",
+      "width": 168,
+      "height": 168,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/PART_leaves",
+      "width": 320,
+      "height": 80,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/PART_meow",
+      "width": 512,
+      "height": 512,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/PART_Pixel",
+      "width": 144,
+      "height": 24,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/PART_Pixel_pink",
+      "width": 144,
+      "height": 24,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/PART_Plume",
+      "width": 352,
+      "height": 88,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/PART_Robot_shot",
+      "width": 256,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/PART_snow",
+      "width": 512,
+      "height": 128,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/PART_Spring",
+      "width": 168,
+      "height": 168,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "Particules/PART_Square",
+      "width": 64,
+      "height": 64,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "QuadBlanc",
+      "width": 16,
+      "height": 16,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "QuadCollisions",
+      "width": 16,
+      "height": 16,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "QuadNoir",
+      "width": 16,
+      "height": 16,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "TITLE/TITLE_A_button",
+      "width": 128,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "TITLE/TITLE_B_button",
+      "width": 128,
+      "height": 128,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "TITLE/TITLE_Bg",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "TITLE/TITLE_Cursor",
+      "width": 980,
+      "height": 140,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "TITLE/TITLE_Logo",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "TITLE/TITLE_Menu_continue",
+      "width": 488,
+      "height": 244,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "TITLE/TITLE_Menu_credits",
+      "width": 488,
+      "height": 244,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "TITLE/TITLE_Menu_new_game",
+      "width": 488,
+      "height": 244,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "TITLE/TITLE_Menu_purchase",
+      "width": 488,
+      "height": 244,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "TITLE/TITLE_Start",
+      "width": 1280,
+      "height": 720,
+      "disposition": "keyboard-swap"
+    },
+    {
+      "asset": "TITLE/TITLE_Start_contour",
+      "width": 1280,
+      "height": 720,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "TITLE/TITLE_TextBox",
+      "width": 750,
+      "height": 344,
+      "disposition": "retain-original"
+    },
+    {
+      "asset": "tmp/Sprites/Gem",
+      "width": 32,
+      "height": 32,
+      "disposition": "retain-original"
+    }
+  ]
+}

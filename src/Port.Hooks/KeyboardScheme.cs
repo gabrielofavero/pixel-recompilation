@@ -29,9 +29,11 @@ public static class KeyboardScheme
         }
         else
         {
-            if (Down(Keys.Escape)) { output.Add(Keys.B); output.Add(Keys.Escape); }
+            // The legacy reader names Xbox Back/Select "Escape". Both desktop
+            // back keys cancel menus; gameplay keeps its separate pause binding.
+            if (Down(Keys.Back, Keys.Escape)) { output.Add(Keys.B); output.Add(Keys.Escape); }
             if (startScreen && Down(Keys.Enter, Keys.Space)) output.Add(Keys.Space);
         }
-        return new KeyboardState(output.ToArray());
+        return new KeyboardState(output.Distinct().ToArray());
     }
 }

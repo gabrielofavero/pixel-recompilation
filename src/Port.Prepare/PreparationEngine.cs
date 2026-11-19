@@ -13,7 +13,7 @@ internal sealed record SupportedVersion(string Title, string TitleId, int Packag
 
 public static class PreparationEngine
 {
-    public const string Version = "0.3.0";
+    public const string Version = "0.7.0";
 
     public static PreparationResult Prepare(PreparationOptions options)
     {
@@ -88,7 +88,7 @@ public static class PreparationEngine
             fnaConfigSha256 = Hash(fnaConfigBytes),
             bridgeSha256 = Hash(bridgeBytes),
             hooksSha256 = Hash(hooksBytes),
-            enhancements = new[] { Patches.DesktopInputPatch.Id },
+            enhancements = new[] { Patches.DesktopInputPatch.Id, Patches.HelpOptionsPatch.Id, Patches.UltrawidePatch.Id },
             files = outputs.Select(row => new
             {
                 path = row.Path,

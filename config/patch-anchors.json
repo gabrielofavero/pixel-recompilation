@@ -7,6 +7,27 @@
       "assemblyMvid": "04e2f29b-2da1-4501-aba1-9e19f732fa57",
       "methods": [
         {
+          "type": "Scale.GAME.Level",
+          "name": "ProcessScanMode",
+          "token": "0x060000e5",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "7c7e775a189adc5c47a61e14aad1f1c7d1feedc0adb293b1431c6e73c9094543"
+        },
+        {
+          "type": "Scale.GAME.Level",
+          "name": "DrawTiles",
+          "token": "0x060000f1",
+          "signature": "Void (Microsoft.Xna.Framework.Graphics.SpriteBatch) [generic:0; cc:Default]",
+          "ilSha256": "2a84f28cb617bfdf640b41d2707068a5df79b0ca92fbe45c68c5f9e9f0943570"
+        },
+        {
+          "type": "Scale.GAME.GAME_Camera",
+          "name": "GACM_Init",
+          "token": "0x0600023d",
+          "signature": "Void (Int32, Int32, Int32, Int32) [generic:0; cc:Default]",
+          "ilSha256": "c8c62d9ab5da1f5ff67d007a7d6e6b1aded629c2ce4df0b3d7b60468337b583c"
+        },
+        {
           "type": "LowLevel.CLASS_GAMEPAD",
           "name": ".ctor",
           "token": "0x06000014",
@@ -285,6 +306,13 @@
           "token": "0x06000072",
           "signature": "Void (Microsoft.Xna.Framework.GameTime) [generic:0; cc:Default]",
           "ilSha256": "31279071d425874937f985775d0ee39d4f72e0ee062fd060fc4cf94630f02b87"
+        },
+        {
+          "type": "Scale.TITLE.TITLEMain",
+          "name": "Display",
+          "token": "0x06000073",
+          "signature": "Void (Microsoft.Xna.Framework.GameTime) [generic:0; cc:Default]",
+          "ilSha256": "a482a730a54556d382df3b9bbc388f1348acaca3ecab3a136c5f623ddc2bbc49"
         },
         {
           "type": "LowLevel.CLASS_FNT",
