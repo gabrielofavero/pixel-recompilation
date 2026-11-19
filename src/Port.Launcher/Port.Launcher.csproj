@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><AssemblyName>Port.Launcher</AssemblyName><AllowUnsafeBlocks>true</AllowUnsafeBlocks></PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FNA"><HintPath>$(FnaDependencyDirectory)/managed/FNA.dll</HintPath><Private>true</Private></Reference>
+    <ProjectReference Include="../Port.Bridge/Port.Bridge.csproj" />
+    <ProjectReference Include="../Port.Hooks/Port.Hooks.csproj" />
+    <Content Include="$(FnaDependencyDirectory)/managed/FNA.dll.config" Link="FNA.dll.config" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="$(FnaDependencyDirectory)/native/win-x64/*.dll" Link="%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="$(FnaDependencyDirectory)/native/win-x64/D3D12/*.dll" Link="D3D12/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

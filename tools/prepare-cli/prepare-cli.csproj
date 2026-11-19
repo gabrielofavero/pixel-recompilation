@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><AssemblyName>prepare-cli</AssemblyName></PropertyGroup>
+  <ItemGroup><ProjectReference Include="../../src/Port.Prepare/Port.Prepare.csproj" /></ItemGroup>
+</Project>

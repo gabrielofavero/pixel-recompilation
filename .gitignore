@@ -1,0 +1,16 @@
+# Original game, extracted files, generated reports, and build products stay local.
+/game/*
+!/game/README.md
+/private/*
+!/private/README.md
+/generated/*
+!/generated/README.md
+/out/*
+!/out/README.md
+/installer/out/
+**/bin/
+**/obj/
+**/__pycache__/
+*.pyc
+*.user
+

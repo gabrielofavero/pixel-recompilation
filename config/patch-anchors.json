@@ -1,0 +1,341 @@
+{
+  "schemaVersion": 1,
+  "assemblies": [
+    {
+      "assemblyName": "Arkedo Series - 03 PIXEL!",
+      "assemblySha256": "4f8fe508c6ae7205726acc359abd321f53cc8ebff945c79d50b6190a95244e85",
+      "assemblyMvid": "04e2f29b-2da1-4501-aba1-9e19f732fa57",
+      "methods": [
+        {
+          "type": "LowLevel.CLASS_GAMEPAD",
+          "name": ".ctor",
+          "token": "0x06000014",
+          "signature": "Void (Microsoft.Xna.Framework.Game) [generic:0; cc:Default]",
+          "ilSha256": "990410959d171b1ed383f712f79067f78fecffb7ca514bc3845cae918ea4b886"
+        },
+        {
+          "type": "LowLevel.CLASS_GAMEPAD",
+          "name": "Initialize",
+          "token": "0x06000016",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "706b8ae4dd1f2edd3a0fa03c461c5da3e34bafa4201cba472e611639b2e82c1f"
+        },
+        {
+          "type": "LowLevel.CLASS_GAMEPAD",
+          "name": "SelectPlayer",
+          "token": "0x06000017",
+          "signature": "Boolean () [generic:0; cc:Default]",
+          "ilSha256": "bbe38e0f2be32e631b688849707b4d96bc9f40022a56bc19602369911107d812"
+        },
+        {
+          "type": "LowLevel.CLASS_GAMEPAD",
+          "name": "Update",
+          "token": "0x06000019",
+          "signature": "Void (Microsoft.Xna.Framework.GameTime) [generic:0; cc:Default]",
+          "ilSha256": "1b6423cb900bcd29578c0c0a58264a86623426b46228110ece60e3a14110c606"
+        },
+        {
+          "type": "LowLevel.CLASS_SAVE",
+          "name": "Ark_SavInit",
+          "token": "0x0600002b",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "810fce35bee1554bda1949726789715f372a24902be36738932606ce770f36bf"
+        },
+        {
+          "type": "LowLevel.CLASS_SAVE",
+          "name": "Ark_SavLoad",
+          "token": "0x0600002c",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "3577a0670c0cd998e08c3c766ec9d1ef3b7072f0b74d7da921fb3e238c92470d"
+        },
+        {
+          "type": "LowLevel.CLASS_SAVE",
+          "name": "StorageDeviceSelectorCallback",
+          "token": "0x0600002d",
+          "signature": "Void (System.IAsyncResult) [generic:0; cc:Default]",
+          "ilSha256": "784a565c9a0d707b35a3d066bf79dc5789235114f800ace74f82b74e4c76b144"
+        },
+        {
+          "type": "LowLevel.CLASS_SAVE",
+          "name": "Ark_SavSave",
+          "token": "0x0600002f",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "74a3426cb62b03190371a454524a0d43d0c62b0b3267662bd607f5610ab57f4c"
+        },
+        {
+          "type": "LowLevel.CLASS_SAVE",
+          "name": "NameFromPlayer",
+          "token": "0x06000030",
+          "signature": "String (Microsoft.Xna.Framework.PlayerIndex) [generic:0; cc:Default]",
+          "ilSha256": "b05e23bc98492b0388cd829c78c44ff95272e1b6ab53cc51852be6992ab15831"
+        },
+        {
+          "type": "LowLevel.CLASS_SAVE",
+          "name": "DoSaveGame",
+          "token": "0x06000031",
+          "signature": "Void (Microsoft.Xna.Framework.Storage.StorageDevice, LowLevel.CLASS_SAVE+CLASS_SAVEDATA, Microsoft.Xna.Framework.PlayerIndex) [generic:0; cc:Default]",
+          "ilSha256": "847c48af44013adbcbe6cad6642381ee1a207e852fcc69055ee9a9a4ba525042"
+        },
+        {
+          "type": "LowLevel.CLASS_SAVE",
+          "name": "DoLoadGame",
+          "token": "0x06000032",
+          "signature": "LowLevel.CLASS_SAVE+CLASS_SAVEDATA (Microsoft.Xna.Framework.Storage.StorageDevice, Microsoft.Xna.Framework.PlayerIndex) [generic:0; cc:Default]",
+          "ilSha256": "81f1ff95cee84782cb177e62167aae9efcdbd17e3c42b2f2627bf4b02f32e14b"
+        },
+        {
+          "type": "LowLevel.CLASS_SAVE",
+          "name": "DoCreate",
+          "token": "0x06000033",
+          "signature": "Void (Microsoft.Xna.Framework.Storage.StorageDevice, Microsoft.Xna.Framework.PlayerIndex) [generic:0; cc:Default]",
+          "ilSha256": "9bebdd7716c6fd8405883ac5d18e513a40902a56bc5d25fa4c1260d777b3d0f5"
+        },
+        {
+          "type": "LowLevel.CLASS_SOUND",
+          "name": "Initialize",
+          "token": "0x06000003",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "c56a2c57ae8bad5b543a63f84038e2a88204615934102cb9030a1e3fe60e1aed"
+        },
+        {
+          "type": "LowLevel.CLASS_SOUND",
+          "name": "Update",
+          "token": "0x0600000a",
+          "signature": "Void (Microsoft.Xna.Framework.GameTime) [generic:0; cc:Default]",
+          "ilSha256": "09447a6ca83a78812ef4cb164501175fecdd200309987395d1e706deae7e6de6"
+        },
+        {
+          "type": "LowLevel.CLASS_MOD_FADE",
+          "name": "Initialize",
+          "token": "0x06000059",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "c09cc4e8c8d9106e48ffa3b2b32350e6768d78af4273a5dad363c01431f12628"
+        },
+        {
+          "type": "LowLevel.CLASS_FNT",
+          "name": "Ark_FntDisplay",
+          "token": "0x06000163",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "72351b0dd41fcfa66cdf6a66b2c57fb2ea5d1cb337c772b84d8522ea2e7081a3"
+        },
+        {
+          "type": "LowLevel.CLASS_SPR",
+          "name": "Ark_SprDisplay",
+          "token": "0x0600020b",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "55b676b09a58027c10d4ef291fb81dcd2a814c5e5f40d5f0a45bdbd4f856f421"
+        },
+        {
+          "type": "Scale.GameScale",
+          "name": ".ctor",
+          "token": "0x06000235",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "1395c83420f58cb05d57024aeb4a9a43717e4e4f9f046a9f7ad4aa478e27031a"
+        },
+        {
+          "type": "Scale.GameScale",
+          "name": "Initialize",
+          "token": "0x06000236",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "5480cfbc7bf060a6a17321604274aad102c08018722c60666625ae67782b5c79"
+        },
+        {
+          "type": "Scale.GameScale",
+          "name": "InitState",
+          "token": "0x06000237",
+          "signature": "Void (Scale.GAME_STATE) [generic:0; cc:Default]",
+          "ilSha256": "82863b3fd9bc1e4dd3f6ba0bbb8b8d4bd3af06f67f1af191d5d756217b40ee2e"
+        },
+        {
+          "type": "Scale.GameScale",
+          "name": "EndState",
+          "token": "0x06000238",
+          "signature": "Void (Boolean, Boolean) [generic:0; cc:Default]",
+          "ilSha256": "96421243b68bb0b62483a22e6246565a8b290cc558c90ad425e9be58ae2002a0"
+        },
+        {
+          "type": "Scale.GameScale",
+          "name": "Update",
+          "token": "0x0600023b",
+          "signature": "Void (Microsoft.Xna.Framework.GameTime) [generic:0; cc:Default]",
+          "ilSha256": "498ce8effc3443b158f89265b22c446cee5378b130b324f8544cb1fc268ee455"
+        },
+        {
+          "type": "Scale.GameScale",
+          "name": "Draw",
+          "token": "0x0600023c",
+          "signature": "Void (Microsoft.Xna.Framework.GameTime) [generic:0; cc:Default]",
+          "ilSha256": "eab1c39950cfb72c788e8f3d22947033089207ff99ae31dbb914014b18ce95e6"
+        },
+        {
+          "type": "Scale.INTRO.INTROMain",
+          "name": "ProcessPage2",
+          "token": "0x06000111",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "83cbb1acdf387b72c98a6207658e8ac8e15e768ecc0cd0fa5f90d0f3f60cfc87"
+        },
+        {
+          "type": "Scale.INTRO.INTROMain",
+          "name": "Dispose",
+          "token": "0x0600010e",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "33763c84bb68615ad1cd3d0465f20fd36a73704e17f64875f193f54ba6275765"
+        },
+        {
+          "type": "Scale.GAME.GAMEMain",
+          "name": "LoadNextLevel",
+          "token": "0x0600018a",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "641f78cab47e098c9f9264642a1b38a14a1af33404febbf6d4038947fae8ecd8"
+        },
+        {
+          "type": "Scale.GAME.GAMEMain",
+          "name": "InitLevel",
+          "token": "0x0600018b",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "dc6cf500aefc27772261096feef8608fa4ee63dbbbba721326821918a75a28ad"
+        },
+        {
+          "type": "Scale.GAME.GAMEMain",
+          "name": "Update",
+          "token": "0x06000190",
+          "signature": "Void (Microsoft.Xna.Framework.GameTime) [generic:0; cc:Default]",
+          "ilSha256": "ef6ae41be9ab0bb3c7d359552b2f81390b266a7ee2cdb3f103b1092a0600ac78"
+        },
+        {
+          "type": "Scale.GAME.GAMEMain",
+          "name": "HandleInput",
+          "token": "0x0600018d",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "629bc880dcffceb9ddbbf49a3a799c172272b74d0e4346124d538a654dae7c35"
+        },
+        {
+          "type": "Scale.GAME.Level",
+          "name": ".ctor",
+          "token": "0x060000a6",
+          "signature": "Void (System.IServiceProvider, Int32, Microsoft.Xna.Framework.Graphics.SpriteBatch, Microsoft.Xna.Framework.Graphics.GraphicsDevice, System.Collections.Generic.List`1<Boolean>, Boolean, Microsoft.Xna.Framework.Point, Boolean) [generic:0; cc:Default]",
+          "ilSha256": "3ac4963e511ee2eb7810d7b3866f3ddf0ac5251173ccb47a08d3e1c065163a97"
+        },
+        {
+          "type": "Scale.GAME.GAME_Cat",
+          "name": ".ctor",
+          "token": "0x0600007c",
+          "signature": "Void (Scale.GAME.Level, Microsoft.Xna.Framework.Vector2, Microsoft.Xna.Framework.Graphics.SpriteBatch) [generic:0; cc:Default]",
+          "ilSha256": "ec5efbfa96f2cdb2b90030cfb1e20ca8e34f094e4aa56dfc8b93645465a5868f"
+        },
+        {
+          "type": "Scale.TITLE.TITLEMain",
+          "name": ".ctor",
+          "token": "0x06000066",
+          "signature": "Void (Microsoft.Xna.Framework.Game, Int32, Boolean, Microsoft.Xna.Framework.Audio.Cue) [generic:0; cc:Default]",
+          "ilSha256": "e5d16e793c68b0e5c2b1afb7648180adb36ef20e0ac6a1c46dfc0be7c9d1f273"
+        },
+        {
+          "type": "Scale.TITLE.TITLEMain",
+          "name": "Initialize",
+          "token": "0x06000067",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "e24d5d4ea8e13a053cec555767b41303f90c4639014eb753b9228c34db3fa4e5"
+        },
+        {
+          "type": "Scale.TITLE.TITLEMain",
+          "name": "ProcessStart",
+          "token": "0x0600006b",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "7cf83473bdf4be17247951d325310a1bb85afd771badde926fa5be2bc4194a44"
+        },
+        {
+          "type": "Scale.TITLE.TITLEMain",
+          "name": "ProcessLoadSave",
+          "token": "0x0600006c",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "4a4886665bfeeeddc6042c9504ea4292009e03e73ecaef62a494247c9f07f14f"
+        },
+        {
+          "type": "Scale.TITLE.TITLEMain",
+          "name": "ProcessSelection",
+          "token": "0x0600006d",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "da8722c0d54a6cdcad8d84016b136cb768c4f86cf5984dbea78b842eec2bfd5c"
+        },
+        {
+          "type": "Scale.TITLE.TITLEMain",
+          "name": "ProcessConfirm",
+          "token": "0x0600006e",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "6c54e5d5fdf5b941f9f6d507ab18b5d1bd5de0a1a424cf30017d259c4e55736f"
+        },
+        {
+          "type": "Scale.TITLE.TITLEMain",
+          "name": "ProcessSignIn",
+          "token": "0x0600006f",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "4da30094345b6abce3282f6ccd02761f8519e2a8d2178bde44e5276ec9383729"
+        },
+        {
+          "type": "Scale.TITLE.TITLEMain",
+          "name": "ProcessPurchase",
+          "token": "0x06000070",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "9dd9ca9144c7c55d2d62ab39ce919fffef556daaed8abb24feede4c2be87c5f9"
+        },
+        {
+          "type": "Scale.TITLE.TITLEMain",
+          "name": "Update",
+          "token": "0x06000072",
+          "signature": "Void (Microsoft.Xna.Framework.GameTime) [generic:0; cc:Default]",
+          "ilSha256": "31279071d425874937f985775d0ee39d4f72e0ee062fd060fc4cf94630f02b87"
+        },
+        {
+          "type": "LowLevel.CLASS_FNT",
+          "name": ".ctor",
+          "token": "0x0600015d",
+          "signature": "Void (String, Microsoft.Xna.Framework.Content.ContentManager, Microsoft.Xna.Framework.Graphics.SpriteBatch) [generic:0; cc:Default]",
+          "ilSha256": "45e2a9a6715f1dbfb298128726bd4b81a3fd2232110e537c25998597e147d754"
+        },
+        {
+          "type": "LowLevel.CLASS_FNT",
+          "name": "Ark_FntLoadFont",
+          "token": "0x0600015f",
+          "signature": "Void (String) [generic:0; cc:Default]",
+          "ilSha256": "47f9b2afc457ec69f1a6db22dc71c23b7c1b24b5d00123771f6d9e35b8115ba1"
+        },
+        {
+          "type": "LowLevel.CLASS_SPR",
+          "name": ".ctor",
+          "token": "0x060001f4",
+          "signature": "Void (String, Microsoft.Xna.Framework.Content.ContentManager, Microsoft.Xna.Framework.Graphics.SpriteBatch) [generic:0; cc:Default]",
+          "ilSha256": "9681f0d7d12ab8a4740e2cde8fb28b76fbbd377d1d6f4eac54fa4ee3330f9490"
+        },
+        {
+          "type": "Scale.GAME.GAME_ZoomMap",
+          "name": ".ctor",
+          "token": "0x0600022b",
+          "signature": "Void (String, Microsoft.Xna.Framework.Content.ContentManager, Microsoft.Xna.Framework.Graphics.SpriteBatch, Scale.GAME.Level, LowLevel.CLASS_SPR) [generic:0; cc:Default]",
+          "ilSha256": "4d2e5c3ed8b77b2b53a510d2830a078624a3ce35ed1171710cdcf59cf71bc349"
+        }
+      ]
+    },
+    {
+      "assemblyName": "Scale_Shared_ContentGame",
+      "assemblySha256": "62811f030b46ef5489b8cb20734b482d75ce2e3ec593f0dc7929f54c85adfcef",
+      "assemblyMvid": "8b8cc2d8-4469-4a69-9b7f-02a1e355eb6d",
+      "methods": [
+        {
+          "type": "Scale.ZoomMapContentReader",
+          "name": ".ctor",
+          "token": "0x06000003",
+          "signature": "Void () [generic:0; cc:Default]",
+          "ilSha256": "2381439520e7d66a099de1c6acdc5d2b815148f540f543adf7e72210da04100a"
+        },
+        {
+          "type": "Scale.ZoomMapContentReader",
+          "name": "Read",
+          "token": "0x06000002",
+          "signature": "Scale.ZoomMap (Microsoft.Xna.Framework.Content.ContentReader, Scale.ZoomMap) [generic:0; cc:Default]",
+          "ilSha256": "668d0fdf44e7ba833d033e92eef29f4634687a4e5294dc4f0603938757ddf156"
+        }
+      ]
+    }
+  ]
+}

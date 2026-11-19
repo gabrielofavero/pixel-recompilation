@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><AssemblyName>Port.Prepare</AssemblyName></PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FNA"><HintPath>$(FnaDependencyDirectory)/managed/FNA.dll</HintPath></Reference>
+    <Reference Include="Mono.Cecil"><HintPath>$(FnaDependencyDirectory)/managed/Mono.Cecil.dll</HintPath></Reference>
+    <ProjectReference Include="../Port.Bridge/Port.Bridge.csproj" />
+    <ProjectReference Include="../Port.Hooks/Port.Hooks.csproj" />
+    <Compile Include="../../tools/inspect_assembly/MetadataNames.cs" Link="MetadataNames.cs" />
+  </ItemGroup>
+</Project>

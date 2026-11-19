@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "packages": [
+    {
+      "title": "Arkedo Series - 03 PIXEL!",
+      "format": "LIVE/STFS",
+      "titleId": "0x585503c9",
+      "packageBytes": 40632320,
+      "packageSha256": "64b5bb62e8cf16c44c04c1b9d2ac5f1c780db1cd28e031cd4315788ab3af4104",
+      "fileTableBlocks": 7,
+      "dataBlocks": 9850,
+      "files": 364,
+      "assemblyPath": "584E07D1/Arkedo Series - 03 PIXEL!.exe",
+      "assemblySha256": "4f8fe508c6ae7205726acc359abd321f53cc8ebff945c79d50b6190a95244e85",
+      "assemblyMvid": "04e2f29b-2da1-4501-aba1-9e19f732fa57",
+      "contentAssemblyPath": "584E07D1/Scale_Shared_ContentGame.dll",
+      "contentAssemblySha256": "62811f030b46ef5489b8cb20734b482d75ce2e3ec593f0dc7929f54c85adfcef",
+      "contentAssemblyMvid": "8b8cc2d8-4469-4a69-9b7f-02a1e355eb6d"
+    }
+  ]
+}
+

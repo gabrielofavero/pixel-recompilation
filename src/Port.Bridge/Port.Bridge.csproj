@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><AssemblyName>Port.Bridge</AssemblyName><NoWarn>$(NoWarn);CS0436</NoWarn></PropertyGroup>
+  <ItemGroup><Reference Include="FNA"><HintPath>$(FnaDependencyDirectory)/managed/FNA.dll</HintPath></Reference></ItemGroup>
+</Project>
