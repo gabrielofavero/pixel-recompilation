@@ -1,6 +1,8 @@
 # Local saves
 
-The desktop bridge uses `%LOCALAPPDATA%\Pixel Recompilation\Saves\Player.sav`, outside the installation directory. All four controller slots share this local player identity; this is one Windows-user save, not four Xbox profiles. `PIXEL_PORT_SAVE_DIR` overrides the directory for isolated validation. Scripted runs default to their prepared stage's `probe-saves` directory and honor an explicit override.
+New installations default to the Windows Saved Games known folder under `Arkedo Series - 03 PIXEL!` (normally `%USERPROFILE%\Saved Games\Arkedo Series - 03 PIXEL!\Player.sav`), outside the installation directory. Setup resolves relocated Saved Games folders through Windows, allows a custom directory, and preserves the saved folder choice on reinstall. The launcher honors that choice through `locations.ini` and `--save-dir`.
+
+Without an installer-selected directory, the desktop bridge falls back to `%LOCALAPPDATA%\Pixel Recompilation\Saves\Player.sav`. All four controller slots share this local player identity; this is one Windows-user save, not four Xbox profiles. `PIXEL_PORT_SAVE_DIR` overrides the directory for isolated validation. Scripted runs default to their prepared stage's `probe-saves` directory and honor an explicit override.
 
 The original `CLASS_SAVEDATA` XML remains version 1: seven level-completion flags and six rows of three treasure flags. The original game owns progression, treasure updates, the New Game reset, and Continue selection. Local preparation replaces only the three hash-guarded storage methods (`DoLoadGame`, `DoSaveGame`, and `DoCreate`) with generic bridge calls using that original data type.
 

@@ -76,7 +76,7 @@ end;
 
 function DefaultSaveDirectory: String;
 begin
-  Result := AddBackslash(ExpandConstant('{userdocs}')) + 'Arkedo Series - 03 PIXEL!\Saves';
+  Result := AddBackslash(ExpandConstant('{usersavedgames}')) + 'Arkedo Series - 03 PIXEL!';
 end;
 
 function SaveDirectory(Param: String): String;

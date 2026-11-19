@@ -1,5 +1,11 @@
 # Implementation log
 
+## 2026-11-19: Saved Games installer default
+
+- Changed the new-install save default to `{usersavedgames}\Arkedo Series - 03 PIXEL!`. Inno resolves the Windows Saved Games known folder, including redirected locations. The folder picker, `/SAVEDIR` override, and previously saved folder choices remain supported; reinstall does not move existing saves.
+- Rebuilt with `./installer/build.ps1 -Offline`. The resulting `installer/out/PIXEL-1.0.0.exe` has SHA-256 `8e418b027f08d3b964102c6e78c3728630f59446f85592d125981bad8db37d64`.
+- A fresh silent install without `/SAVEDIR` selected the path independently resolved through `SHGetKnownFolderPath(FOLDERID_SavedGames)`. Reinstall preserved a previous Documents-style save-folder choice and reused prepared content. Uninstall preserved the save sentinel and source package; the test removed its own temporary sentinel afterward. Evidence is in ignored `out/saved-games-installer-check.log` and `private/wizard-check-d8aef16b6aec41c2b0e443421bf1eaac/`.
+
 ## 2026-11-19: Windows installer
 
 - Adapted the `z0mb1es-rec0mp1led` Inno Setup wizard and helper lifecycle for PIXEL. Kept per-user installation, folder selection, package validation, shortcut choices, ready/progress/finish pages, measured installed size, reuse, rollback, and save preservation. Removed the flashing-light and optional texture-import flows. PIXEL selects installation and saves; there is no pictures-import folder.
